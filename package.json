@@ -1,0 +1,32 @@
+{
+  "name": "formvalidator",
+  "version": "1.0.0",
+  "description": "Validador de formulário em plainjs (vanillajs)",
+  "main": "index.html",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-minifier": "^0.2.2",
+    "run-sequence": "^2.2.0",
+    "gulp-rename": "^1.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gilsonterra/FormValidator.git"
+  },
+  "keywords": [
+    "validator",
+    "validate",
+    "form"
+  ],
+  "author": "Gilson Terra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gilsonterra/FormValidator/issues"
+  },
+  "homepage": "https://github.com/gilsonterra/FormValidator#readme",
+  "dependencies": {}
+}
