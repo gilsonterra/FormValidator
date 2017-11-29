@@ -37,11 +37,8 @@
             if(!element){            
                 return false;
             }
-            if (toogle) {
-                element.classList.add('has-error');
-            } else {
-                element.classList.remove('has-error');
-            }
+
+            return toogle ? element.classList.add('has-error') : element.classList.remove('has-error');            
         };
 
         var _getErrors = function () {
