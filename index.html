@@ -26,27 +26,39 @@
 
         <div>
             <label for="matricula">Matricula</label>
-            <input type="text" name="matricula">
-            <span class="message"></span>
+            <select name="matricula" id="">
+                <option value=""></option>
+                <option value="123">123</option>
+                <option value="456">456</option>
+            </select>
         </div>
 
         <button type="submit">Enviar</button>
     </form>
 
-    <script src="validate.js"></script>
+    <script src="form-validator.js"></script>
     <script>
         var validator = new FormValidator('formulario', [{
-            name: 'nome',
-            rules: [{
-                    name: 'required',
-                    message: 'Campo obrigatório'
-                },
-                {
-                    name: 'number',
-                    message: 'Deve ser numérico'
-                }
-            ]
-        }]);
+                name: 'nome',
+                rules: [{
+                        name: 'required',
+                        message: 'Campo obrigatório'
+                    },
+                    {
+                        name: 'number',
+                        message: 'Deve ser numérico'
+                    }
+                ]
+            },
+            {
+                name: 'matricula',
+                rules: [{
+                        name: 'required',
+                        message: 'Campo obrigatório'
+                    }
+                ]
+            }
+        ]);
 
         document.getElementsByName('formulario')[0].addEventListener('submit', function (event) {
             event.preventDefault();

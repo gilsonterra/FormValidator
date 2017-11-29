@@ -13,8 +13,9 @@
             _errors = [];
             _fields.forEach(function (field) {
                 field.element = _findElementByName(field.name);
-                _toogleClassError(field.element, false);
-                _renderMessage(field.element.parentNode, '');
+                var parent = field.element.parentNode;                
+                _renderMessage(parent, '');
+                _toogleClassError(parent, false); 
 
                 field.rules.forEach(function (rule) {
                     if (!_validators[rule.name](field.element, rule.params)) {
@@ -33,6 +34,9 @@
         };
 
         var _toogleClassError = function (element, toogle) {
+            if(!element){            
+                return false;
+            }
             if (toogle) {
                 element.classList.add('has-error');
             } else {
@@ -48,21 +52,19 @@
             if (_errors.length > 0) {
                 _errors.forEach(function (field) {
                     var parent = field.element.parentNode;
-
-                    _toogleClassError(field.element, true);
-
+                    _toogleClassError(parent, true);
                     _renderMessage(parent, field.message);
                 });
             }
         };
 
         var _renderMessage = function (element, message) {
-            var messageContainer = element.querySelector('.message');
+            var messageContainer = element.querySelector('.form-input-hint');
             if (messageContainer) {
                 messageContainer.innerHTML = message;
             } else {
                 var span = document.createElement('span');
-                span.classList.add('message');
+                span.classList.add('form-input-hint');
                 span.innerHTML = message;
                 element.appendChild(span);
             }
@@ -82,7 +84,7 @@
             },
 
             equalTo: function (elem, param) {
-                var equal = _findElementByName(param[0]);
+                var equal = _findElementByName(param[0]);                
                 return (equal.value == elem.value);
             }
         };
